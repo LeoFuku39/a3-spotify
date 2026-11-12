@@ -6,27 +6,33 @@
 				<th scope="col">Track</th>
 				<th scope="col">Duration</th>
 				<!--TODO: Use @if to hide if hideArtist is true-->
-				<th scope="col">Primary Artist</th>
+				@if (!hideArtist) {
+					<th scope="col">Primary Artist</th>
+				}
 				<!--TODO: Use @if to hide if hideAlbum is true-->
-				<th scope="col">Album</th>
+				@if (!hideAlbum) {
+					<th scope="col">Album</th>
+				}
 			</tr>
 		</thead>
 		<tbody>
 			<!--TODO: Use @for to loop over tracks-->
+			@for (t of tracks; track t.id; let i = $index) {
 			<tr>
 				<!--TODO: Populate with row index (start with 1!)-->
-				<td>???</td>
+				<td>{{ i + 1 }}</td>
 				<td>
 					<!--TODO: link to the endpoint for that track, display the track's name-->
-					<a>???</a>
+					<a [href]="'/track/' + t.id">{{ t.name }}</a>
 				</td>
 				<!--TODO: display the track's duration-->
-				<td>???</td>
+				<td>{{ t.duration }}</td>
 				<!--TODO: Use @if to hide if hideArtist is true; link to the first artist's endpoint and display the first artist's name-->
-				<td><a></a></td>
+				<td><a [href]="'/artist/' + t.artists[0].id">{{ t.artists[0].name }}</a></td>
 				<!--TODO: Use @if to hide if hideAlbum is true; link to the album's endpoint and display the album's name-->
-				<td><a></a></td>
+				<td><a [href]="'/album/' + t.album.id">{{ t.album.name }}</a></td>
 			</tr>
+		}
 		</tbody>
 	</table>
 }
