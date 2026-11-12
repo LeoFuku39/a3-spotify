@@ -62,14 +62,14 @@ export class SpotifyService {
   }
 
   getTopTracksForArtist(artistId:string):Promise<TrackData[]> {
-    return this.sendRequestToExpress('/artist/' + artistId + '/top-tracks').then((data) => {
+    return this.sendRequestToExpress('/artist-top-tracks/' + artistId + '/top-tracks').then((data) => {
       return data.tracks.map((item) => new TrackData(item));
     });
   }
 
   getAlbumsForArtist(artistId:string):Promise<AlbumData[]> {
-    return this.sendRequestToExpress('/artist/' + artistId + '/albums').then((data) => {
-      return data.albums.items.map((item) => new AlbumData(item));
+    return this.sendRequestToExpress('/artist-albums/' + artistId).then((data) => {
+      return data.items.map((item) => new AlbumData(item));
     });
   }
 
@@ -80,7 +80,7 @@ export class SpotifyService {
   }
 
   getTracksForAlbum(albumId:string):Promise<TrackData[]> {
-    return this.sendRequestToExpress('/album/' + albumId + '/tracks').then((data) => {
+    return this.sendRequestToExpress('/album-tracks/' + albumId).then((data) => {
       return data.tracks.map((item) => new TrackData(item));
     });
   }

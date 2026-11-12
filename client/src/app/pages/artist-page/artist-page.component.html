@@ -4,7 +4,7 @@
 			<h1>{{ artist.name }}</h1>
 			<img id="artistImg" [src]="artist.imageURL">
 			<p>
-				<a class="btn btn-light" role="button" target="_blank">Open {{ artist.name }} on Spotify</a>
+				<a class="btn btn-light" role="button" target="_blank" [href]="artist.url">Open {{ artist.name }} on Spotify</a>
 			</p>
 		</div>
 		<div class="col-xl-4 col-12">
@@ -13,13 +13,13 @@
 			<app-thermometer [popularity]="artist.popularity"></app-thermometer>
 			<h3>{{ artist.name }}'s Albums</h3>
 			@if(albums){
-				<app-carousel [resource]="albums" carouselId="'artist-albums-carousel'"></app-carousel>
+				<app-carousel [resources]="albums" carouselId="artist-albums-carousel"></app-carousel>
 			}
 		</div>
 		<div class="col-xl-4 col-12">
 			<h3>{{ artist.name }}'s Top Tracks</h3>
 			@if(topTracks){
-				<app-track-list [tracks]="topTracks" [hideartist]="true"></app-track-list>
+				<app-track-list [tracks]="topTracks" [hideArtist]="true"></app-track-list>
 			}
 		</div>
 	</div>
