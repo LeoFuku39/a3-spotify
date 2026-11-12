@@ -62,7 +62,7 @@ export class SpotifyService {
   }
 
   getTopTracksForArtist(artistId:string):Promise<TrackData[]> {
-    return this.sendRequestToExpress('/artist-top-tracks/' + artistId + '/top-tracks').then((data) => {
+    return this.sendRequestToExpress('/artist-top-tracks/' + artistId).then((data) => {
       return data.tracks.map((item) => new TrackData(item));
     });
   }
