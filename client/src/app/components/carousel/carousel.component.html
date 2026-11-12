@@ -1,10 +1,6 @@
 @if(resources) {
 <div [id]="carouselId" class="carousel slide carousel-fade">
   <div class="carousel-inner">
-    <!--TODO: edit @for to populate carousel with carousel-card components.-->
-    <!--carousel-card can bind a single resource as an Input.-->
-    <!--"let first=$first" sets the "first" variable to be true for the first card in the carousel. The [ngClass] assigns the active property to it-->
-    <!--https://angular.dev/api/core/@for-->
     @for(r of resources; track r.id; let first=$first) {
       <app-carousel-card class="carousel-item" [resource]="r" [class.active]="first"></app-carousel-card>
     }
