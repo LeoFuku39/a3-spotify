@@ -20,7 +20,7 @@
 				<td>
 					<a [href]="'/track/' + t.id">{{ t.name }}</a>
 				</td>
-				<td>{{ t.duration }}</td>
+				<td>{{ t.durationStr }}</td>
 				@if (!hideArtist) {
 					<td><a [href]="'/artist/' + t.artists[0].id">{{ t.artists[0].name }}</a></td>
 				}
