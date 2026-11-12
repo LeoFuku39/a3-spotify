@@ -81,7 +81,7 @@ export class SpotifyService {
 
   getTracksForAlbum(albumId:string):Promise<TrackData[]> {
     return this.sendRequestToExpress('/album-tracks/' + albumId).then((data) => {
-      return data.tracks.map((item) => new TrackData(item));
+      return data.items.map((item) => new TrackData(item));
     });
   }
 
